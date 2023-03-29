@@ -67,7 +67,6 @@ const addMovies = async (req, res) => {
     await movie.save({ session })
     adminUser.addedMovies.push(movie)
     await adminUser.save({ session })
-
     await session.commitTransaction()
   } catch (err) {
     return res.send(err.message)

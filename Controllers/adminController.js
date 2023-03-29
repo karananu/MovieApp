@@ -68,19 +68,19 @@ const getAdmins = async (req, res) => {
   return res.status(200).json({ admins })
 }
 const getAdminByID = async (req, res, next) => {
-  const id = req.params.id
-  let Admin
+  const id = req.params.id;
+  let Admin;
   try {
-    Admin = await admin.findById(id).populate('addedMovies')
+    Admin = await admin.findById(id).populate("addedMovies");
   } catch (err) {
-    return console.error(err)
+    return console.error(err);
   }
 
   if (!Admin) {
-    return console.log('Cannot find Admin')
+    return console.log("Cannot find Admin");
   }
-
   return res.status(200).json({ Admin })
-}
+};
+
 
 module.exports = { addAdmin, adminlogin, getAdmins, getAdminByID }
